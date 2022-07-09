@@ -5,7 +5,7 @@ const port = 5000
 const init = async () => {
     const server = Hapi.server({
         port: port,
-        host: 'localhost',
+        host: process.env.NODE_ENV !== 'production' ? 'localhost' : '0.0.0.0',
         routes: {
             cors: {
                 origin: ['Access-Control-Allow-Origin', 'http://notesapp-v1.dicodingacademy.com'],
